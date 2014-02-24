@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>New Match</h1>
+
+  <% if current_user %>
+  <p>Signed in as <%= current_user.nickname %> <%= link_to 'Sign out', sign_out_path, class: 'btn btn-xs btn-danger' %></p>
+
+  <%= form_for @match, role: 'form' do |f| %>
+
+  <% if @match.errors.any? %>
+  <div class="alert alert-danger">
+    <strong>Heads up!</strong> <%= pluralize(@match.errors.count, 'error') %> prevented this match from being saved.
+
+    <ul>
+      <% @match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :match_1 %>
+    <%= f.text_field :match_1, class: 'form-control', placeholder: '@twitter handle 1' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :match_2 %>
+    <%= f.text_field :match_2, class: 'form-control', placeholder: '@twitter handle 2' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :match_3 %>
+    <%= f.text_field :match_3, class: 'form-control', placeholder: '@twitter handle 3' %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+
+  <% end %>
+  <% else %>
+  <p>Not signed in. <%= link_to 'Sign in with Twitter', '/auth/twitter', class: 'btn btn-xs btn-primary', data: { no_turbolink: true } %></p>
+  <% end %>
+</div>

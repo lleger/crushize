@@ -8,6 +8,8 @@ gem 'pg'
 gem 'unicorn'
 gem 'rack-timeout'
 
+gem 'omniauth-twitter'
+
 gem 'jbuilder', '~> 1.2'
 
 gem 'title'
