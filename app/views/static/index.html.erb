@@ -1,0 +1,70 @@
+<a id="home" name="home"></a>
+<div id="header">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Welcome To <b>Crushize</b></h1>
+      <h3>Find out if your crush likes you without any risk!</h3>
+    </div>
+  </div>
+</div>
+
+<a id="desc" name="desc"></a>
+<div id="intro">
+  <div class="container">
+    <div class="row">
+      <h1>See if your crush likes you in 3 steps.</h1>
+
+      <div class="col-lg-4">
+        <%= image_tag 'twitter.png' %>
+        <h3>Step 1: Login using Twitter</h3>
+        <p>Login below using your personal twitter account. Anonymous accounts won't work!</p>
+      </div>
+
+      <div class="col-lg-4">
+        <%= image_tag 'heart.png' %>
+        <h3>Step 2: List your crushes!</h3>
+        <p>List up to 3 different crushes you have. Simply type their twitter handles into the fields and hit submit</p>
+      </div>
+
+      <div class="col-lg-4">
+        <%= image_tag 'intro03.png' %>
+        <h3>Step 3: Wait for a match</h3>
+        <p>We'll notify your crush an anonymous person likes them. If they list you as a crush too, you'll both be notified on Twitter that you're a match!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a id="contact" name="contact"></a>
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <h3>Login</h3>
+      </div>
+
+      <div class="col-lg-7">
+        <h3>List Up To 3 Potential Crushes</h3>
+        <p>If any of your crushes list you too, you'll both be notified on twitter.</p>
+
+        <form role="form" action="#" method="post" enctype="plain">
+          <div class="form-group">
+            <label for="name1">First Option</label>
+            <input type="text" name="Twitter1" class="form-control" id="twitter1" placeholder="@twitter handle #1">
+          </div>
+          <div class="form-group">
+            <label for="name1">Second Option</label>
+            <input type="text" name="Twitter2" class="form-control" id="twitter2" placeholder="@twitter handle #2">
+          </div>
+          <div class="form-group">
+            <label for="name1">Third Option</label>
+            <input type="text" name="Twitter3" class="form-control" id="twitter3" placeholder="@twitter handle #3">
+          </div>
+
+        <button type="submit" class="btn btn-large btn-success">SUBMIT</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
