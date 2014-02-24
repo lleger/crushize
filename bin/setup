@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+
+##
+# Set up Rails app and dependencies.
+# Run this script first before doing anything else.
+##
+
+# Assumptions:
+# - Ruby is installed
+# - rbenv is installed
+# - Homebrew is installed
+# - postgresql is installed
+# - Heroku toolkit is installed
+
+# Exit if any subcommand fails
+set -e
+
+# Set up Ruby dependencies
+bundle install
+
+# Set up database
+bundle exec rake db:setup
+
+# Set up configuration file
+if [ ! -f .env ]; then
+  sed "s/SECRET_TOKEN=123abc/SECRET_TOKEN=$(openssl rand -hex 30)/g" .sample.env > .env
+  echo 'Edit environment variables in .env.'
+fi
+
+# Set up Pow and Foreman
+echo 'port: 7000' > .foreman
+
+if [ -d ~/.pow ]; then
+  echo 7000 > ~/.pow/`basename $PWD`
+else
+  echo 'Pow not set up, but is recommended.'
+fi
+
+# Set up staging and production git remotes for Heroku
+# git remote add staging git@heroku.com:crushize-staging.git
+# git remote add production git@heroku.com:crushize-production.git
