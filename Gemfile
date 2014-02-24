@@ -9,6 +9,7 @@ gem 'unicorn'
 gem 'rack-timeout'
 
 gem 'omniauth-twitter'
+gem 'google_drive'
 
 gem 'jbuilder', '~> 1.2'
 

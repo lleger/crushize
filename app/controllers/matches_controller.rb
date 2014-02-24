@@ -7,8 +7,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
 
     if @match.valid?
-      # TODO: Save match data
-      logger.debug { 'New match: ' + @match.to_json }
+      @match.save_to_google_doc
       redirect_to new_match_path, notice: 'Your matches have been saved.'
     else
       render 'new'
