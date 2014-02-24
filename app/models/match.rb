@@ -5,8 +5,10 @@ class Match
   attr_accessor :user_id, :match_1, :match_2, :match_3
 
   validates :user_id, presence: true
+  validates :match_1, :match_2, :match_3, format: {
+    with: /\A@/, allow_blank: true, message: 'must begin with @'
+  }
   validate :matches_present
-  # TODO: Validate `@`
 
   def user
     @user ||= User.find(user_id)
