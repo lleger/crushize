@@ -1,13 +1,38 @@
-$body-bg:          #f2f2f2;
-$text-color:       #555;
-$headings-color:   #333;
-$link-color:       #3bc492;
-$link-hover-color: #c0392b;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
 
 @import "bootstrap";
 
 body {
-  padding-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid $gray-lighter;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .footer {
+    margin-top: 30px;
+  }
+
+  .jumbotron {
+    border-bottom: 0;
+  }
 }
 
 @import "static";

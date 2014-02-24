@@ -4,4 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include Sessions
+
+  private
+
+  def current_step
+    if current_user
+      if session[:finished] == true
+        :wait
+      else
+        :form
+      end
+    else
+      :sign_in
+    end
+  end
+  helper_method :current_step
 end

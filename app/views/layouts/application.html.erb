@@ -8,31 +8,16 @@
 </head>
 <body class="<%= body_class %>">
 
-  <div id="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to 'Crushize', root_path, class: 'navbar-brand' %>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#home">Home</a></li>
-          <li><a href="#desc">Features</a></li>
-          <li><a href="#contact">Find a Match</a></li>
-        </ul>
-      </div>
+  <div class="container">
+    <%= flash_block %>
+
+    <%= yield %>
+
+    <div class="footer">
+      <p>&copy; Crushize <%= Time.now.year %> &middot; <%= mail_to 'crushize@gmail.com', 'Contact us.' %> &middot; <a href="https://twitter.com/crushize">You should follow us on twitter.</a></p>
     </div>
   </div>
 
-  <div class="container"><%= flash_block %></div>
-
-  <%= yield %>
-
-  <%= render_google_analytics %>
-
+<%= render_google_analytics %>
 </body>
 </html>

@@ -1,20 +1,25 @@
 class MatchesController < ApplicationController
-  def new
-    @match = Match.new
-  end
+  before_action :verify_user
 
   def create
     @match = Match.new(match_params)
 
     if @match.valid?
       @match.save_to_google_doc
-      redirect_to new_match_path, notice: 'Your matches have been saved.'
+      session[:finished] = true
+      redirect_to root_path, notice: 'Your crushes have been saved.'
     else
-      render 'new'
+      render 'static/index'
     end
   end
 
   private
+
+  def verify_user
+    if !current_user
+      redirect_to root_path, notice: 'You must sign in to twitter before continuing.'
+    end
+  end
 
   def match_params
     params.require(:match).permit(:match_1, :match_2, :match_3)

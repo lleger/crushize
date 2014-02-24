@@ -1,0 +1,29 @@
+<%= form_for match, role: 'form' do |f| %>
+
+<% if match.errors.any? %>
+<div class="alert alert-danger">
+  <strong>Heads up!</strong> <%= pluralize(match.errors.count, 'error') %> prevented your matches from being saved.
+
+  <ul>
+    <% match.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.text_field :match_1, class: 'form-control', placeholder: '@twitter handle 1' %>
+</div>
+
+<div class="form-group">
+  <%= f.text_field :match_2, class: 'form-control', placeholder: '@twitter handle 2' %>
+</div>
+
+<div class="form-group">
+  <%= f.text_field :match_3, class: 'form-control', placeholder: '@twitter handle 3' %>
+</div>
+
+<%= f.submit 'Submit', class: 'btn btn-primary btn-block', disable_with: 'Saving crushes...' %>
+
+<% end %>

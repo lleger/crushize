@@ -1,48 +1,32 @@
-.static {
+.jumbotron {
+  background-color: $body-bg;
+  text-align: center;
+}
 
-  &.index {
-    #header {
-      text-align: center;
-    	background-color: #34495e;
-    	padding: 40px 0 60px;
-
-      h1 {
-      	color: white;
-      	font-size: 70px;
-      }
-
-      h3 {
-      	color: white;
-      	font-size: 30px;
-      }
-    }
-
-    #intro {
-    	padding-top: 50px;
-    	border-top: #bdc3c7 solid 5px;
-      text-align: center;
-
-      h1 {
-        padding-bottom: 20px;
-      }
-    }
-
-    #footer {
-      background-color: #2f2f2f;
-    	color: white;
-    	padding-top: 40px;
-    	padding-bottom: 60px;
-
-      h3 {
-        color: white;
-        font-size: 28px;
-      }
-
-      p {
-      	font-size: 18px;
-      }
-
-    }
+.steps {
+  .spacer {
+    border-bottom: 1px solid $gray-lighter;
+    margin-top: 25px;
   }
 
+  .step {
+    margin: 35px 0 75px;
+
+    &.active span {
+      background-color: $brand-primary;
+    }
+
+    span {
+      background-color: $gray-dark;
+      text-align: center;
+      border-radius: 50%;
+      font-size: $font-size-h1;
+      color: $body-bg;
+      padding: 22px 34px;
+    }
+  }
+}
+
+.instructions {
+  text-align: center;
 }

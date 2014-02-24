@@ -1,71 +1,61 @@
-<a id="home" name="home"></a>
-<div id="header">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>Welcome To <b>Crushize</b></h1>
-      <h3>Find out if your crush likes you without any risk!</h3>
+<div class="jumbotron">
+  <h1>Welcome to Crushize!</h1>
+  <p class="lead">Find out if your crush likes you without any risk, in just three easy steps.</p>
+</div>
+
+<div class="row steps">
+  <div class="col-lg-4 step <%= 'active' if current_step == :sign_in %>">
+    <div class="col-lg-4 spacer"></div>
+    <div class="col-lg-4">
+      <span>1</span>
     </div>
+    <div class="col-lg-4 spacer"></div>
+  </div>
+
+  <div class="col-lg-4 step <%= 'active' if current_step == :form %>">
+    <div class="col-lg-4 spacer"></div>
+    <div class="col-lg-4">
+      <span>2</span>
+    </div>
+    <div class="col-lg-4 spacer"></div>
+  </div>
+
+  <div class="col-lg-4 step <%= 'active' if current_step == :wait %>">
+    <div class="col-lg-4 spacer"></div>
+    <div class="col-lg-4">
+      <span>3</span>
+    </div>
+    <div class="col-lg-4 spacer"></div>
   </div>
 </div>
 
-<a id="desc" name="desc"></a>
-<div id="intro">
-  <div class="container">
-    <div class="row">
-      <h1>See if your crush likes you in 3 steps.</h1>
-
-      <div class="col-lg-4">
-        <%= image_tag 'twitter.png' %>
-        <h3>Step 1: Login using Twitter</h3>
-        <p>Login below using your personal twitter account. Anonymous accounts won't work!</p>
-      </div>
-
-      <div class="col-lg-4">
-        <%= image_tag 'heart.png' %>
-        <h3>Step 2: List your crushes!</h3>
-        <p>List up to 3 different crushes you have. Simply type their twitter handles into the fields and hit submit</p>
-      </div>
-
-      <div class="col-lg-4">
-        <%= image_tag 'intro03.png' %>
-        <h3>Step 3: Wait for a match</h3>
-        <p>We'll notify your crush an anonymous person likes them. If they list you as a crush too, you'll both be notified on Twitter that you're a match!</p>
-      </div>
-    </div>
+<div class="row instructions">
+  <div class="col-lg-4">
+    <%= image_tag 'twitter.png' %>
+    <h3>Step 1: Sign in with Twitter.</h3>
+    <% if !current_user %>
+      <p>Login below using your personal twitter account. <em>Anonymous accounts won't work</em>!</p>
+      <%= link_to 'Click here to begin', '/auth/twitter', class: 'btn btn-lg btn-primary', data: { no_turbolink: true } %>
+    <% else %>
+      <p>You&rsquo;re signed in! Input your crushes to the right.</p>
+      <%= link_to 'Sign out', sign_out_path, class: 'btn btn-xs btn-danger' %>
+    <% end %>
   </div>
-</div>
 
-<a id="contact" name="contact"></a>
-<div id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5">
-        <h3>Login</h3>
-        <%= link_to 'Sign in with Twitter', '/auth/twitter', class: 'btn btn-primary', data: { no_turbolink: true } %>
-      </div>
+  <div class="col-lg-4">
+    <%= image_tag 'heart.png' %>
+    <h3>Step 2: List your crushes!</h3>
+    <p>List up to <strong>three</strong> different crushes you have. Simply type their twitter handles into the fields and hit submit.</p>
+    <% if current_user && current_step == :form %>
+      <%= render 'matches/form', match: @match %>
+    <% end %>
+  </div>
 
-      <div class="col-lg-7">
-        <h3>List Up To 3 Potential Crushes</h3>
-        <p>If any of your crushes list you too, you'll both be notified on twitter.</p>
-
-        <form role="form" action="#" method="post" enctype="plain">
-          <div class="form-group">
-            <label for="name1">First Option</label>
-            <input type="text" name="Twitter1" class="form-control" id="twitter1" placeholder="@twitter handle #1">
-          </div>
-          <div class="form-group">
-            <label for="name1">Second Option</label>
-            <input type="text" name="Twitter2" class="form-control" id="twitter2" placeholder="@twitter handle #2">
-          </div>
-          <div class="form-group">
-            <label for="name1">Third Option</label>
-            <input type="text" name="Twitter3" class="form-control" id="twitter3" placeholder="@twitter handle #3">
-          </div>
-
-        <button type="submit" class="btn btn-large btn-success">SUBMIT</button>
-
-        </form>
-      </div>
-    </div>
+  <div class="col-lg-4">
+    <%= image_tag 'intro03.png' %>
+    <h3>Step 3: Wait for a match.</h3>
+    <p>We&rsquo;ll notify your crush an anonymous person likes them. If they list you as a crush too, you&rsquo;ll both be notified on Twitter that you&rsquo;re a match!</p>
+    <a href="https://twitter.com/crushize" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @crushize</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
 </div>
