@@ -1,23 +1,31 @@
 .jumbotron {
-  background-color: $body-bg;
+  padding-top: 50px;
+  padding-bottom: 75px;
+  background-color: #001F3F;
+  color: $gray-lighter;
   text-align: center;
+  margin-bottom: 0;
 }
 
 .steps {
-  .spacer {
-    border-bottom: 1px solid $gray-lighter;
-    margin-top: 25px;
+  @media (min-width: $screen-lg-min) {
+    position: relative;
+    top: -25px;
   }
 
   .step {
-    margin: 35px 0 75px;
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      margin-top: 100px;
+    }
+
+    margin-bottom: 50px;
 
     &.active span {
-      background-color: $brand-primary;
+      background-color: lighten($brand-primary, 13.5%);
     }
 
     span {
-      background-color: $gray-dark;
+      background-color: $gray;
       text-align: center;
       border-radius: 50%;
       font-size: $font-size-h1;
@@ -29,4 +37,8 @@
 
 .instructions {
   text-align: center;
+
+  form {
+    margin-top: 25px;
+  }
 }

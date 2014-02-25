@@ -1,12 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Bree+Serif);
+
+$brand-primary: #001F3F;
 
 $font-family-sans-serif: 'Open Sans', sans-serif;
+$headings-font-family: 'Bree Serif', serif;
 
 @import "bootstrap";
 
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
+  background: transparent image-url('cloth_alike.png') left top repeat;
 }
 
 .footer {
@@ -16,11 +19,11 @@ body {
 
 .footer {
   padding-top: 19px;
-  color: #777;
-  border-top: 1px solid $gray-lighter;
+  color: $gray;
+  border-top: 1px solid $gray-light;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: $screen-lg-min) {
   .footer {
     padding-right: 0;
     padding-left: 0;

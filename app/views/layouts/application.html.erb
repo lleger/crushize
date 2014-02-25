@@ -7,12 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
+  <%= yield %>
 
   <div class="container">
-    <%= flash_block %>
-
-    <%= yield %>
-
     <div class="footer">
       <p>&copy; Crushize <%= Time.now.year %> &middot; <%= mail_to 'crushize@gmail.com', 'Contact us.' %> &middot; <a href="https://twitter.com/crushize">You should follow us on twitter.</a></p>
     </div>

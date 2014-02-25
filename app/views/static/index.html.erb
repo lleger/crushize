@@ -1,61 +1,91 @@
 <div class="jumbotron">
+  <div class="container">
+    <%= flash_block %>
+  </div>
+
   <h1>Welcome to Crushize!</h1>
   <p class="lead">Find out if your crush likes you without any risk, in just three easy steps.</p>
 </div>
 
-<div class="row steps">
-  <div class="col-lg-4 step <%= 'active' if current_step == :sign_in %>">
-    <div class="col-lg-4 spacer"></div>
-    <div class="col-lg-4">
-      <span>1</span>
+<div class="container">
+  <div class="row steps hidden-sm">
+    <div class="col-md-4 step <%= 'active' if current_step == :sign_in %>">
+      <div class="col-md-4 col-md-offset-4">
+        <span>1</span>
+      </div>
     </div>
-    <div class="col-lg-4 spacer"></div>
-  </div>
 
-  <div class="col-lg-4 step <%= 'active' if current_step == :form %>">
-    <div class="col-lg-4 spacer"></div>
-    <div class="col-lg-4">
-      <span>2</span>
+    <div class="col-md-4 step <%= 'active' if current_step == :form %>">
+      <div class="col-md-4 col-md-offset-4">
+        <span>2</span>
+      </div>
     </div>
-    <div class="col-lg-4 spacer"></div>
-  </div>
 
-  <div class="col-lg-4 step <%= 'active' if current_step == :wait %>">
-    <div class="col-lg-4 spacer"></div>
-    <div class="col-lg-4">
-      <span>3</span>
+    <div class="col-md-4 step <%= 'active' if current_step == :wait %>">
+      <div class="col-md-4 col-md-offset-4">
+        <span>3</span>
+      </div>
     </div>
-    <div class="col-lg-4 spacer"></div>
-  </div>
-</div>
-
-<div class="row instructions">
-  <div class="col-lg-4">
-    <%= image_tag 'twitter.png' %>
-    <h3>Step 1: Sign in with Twitter.</h3>
-    <% if !current_user %>
-      <p>Login below using your personal twitter account. <em>Anonymous accounts won't work</em>!</p>
-      <%= link_to 'Click here to begin', '/auth/twitter', class: 'btn btn-lg btn-primary', data: { no_turbolink: true } %>
-    <% else %>
-      <p>You&rsquo;re signed in! Input your crushes to the right.</p>
-      <%= link_to 'Sign out', sign_out_path, class: 'btn btn-xs btn-danger' %>
-    <% end %>
   </div>
 
-  <div class="col-lg-4">
-    <%= image_tag 'heart.png' %>
-    <h3>Step 2: List your crushes!</h3>
-    <p>List up to <strong>three</strong> different crushes you have. Simply type their twitter handles into the fields and hit submit.</p>
-    <% if current_user && current_step == :form %>
-      <%= render 'matches/form', match: @match %>
-    <% end %>
-  </div>
+  <div class="row instructions">
+    <div class="col-md-4">
+      <div class="visible-sm">
+        <div class="row steps">
+          <div class="col-md-4 step <%= 'active' if current_step == :sign_in %>">
+            <div class="col-md-4 col-md-offset-4">
+              <span>1</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="col-lg-4">
-    <%= image_tag 'intro03.png' %>
-    <h3>Step 3: Wait for a match.</h3>
-    <p>We&rsquo;ll notify your crush an anonymous person likes them. If they list you as a crush too, you&rsquo;ll both be notified on Twitter that you&rsquo;re a match!</p>
-    <a href="https://twitter.com/crushize" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @crushize</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <%= image_tag 'twitter.png' %>
+      <h3>Step 1: Sign in with Twitter.</h3>
+      <% if !current_user %>
+        <p>Login below using your personal twitter account. <em>Anonymous accounts won't work</em>!</p>
+        <%= link_to 'Click here to begin', '/auth/twitter', class: 'btn btn-lg btn-primary', data: { no_turbolink: true } %>
+      <% else %>
+        <p>You&rsquo;re signed in! Input your crushes to the right.</p>
+        <%= link_to 'Sign out', sign_out_path, class: 'btn btn-xs btn-danger' %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <div class="visible-sm">
+        <div class="row steps">
+          <div class="col-md-4 step <%= 'active' if current_step == :sign_in %>">
+            <div class="col-md-4 col-md-offset-4">
+              <span>2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= image_tag 'heart.png' %>
+      <h3>Step 2: List your crushes!</h3>
+      <p>List up to <strong>three</strong> different crushes you have. Simply type their twitter handles into the fields and hit submit.</p>
+      <% if current_user && current_step == :form %>
+        <%= render 'matches/form', match: @match %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <div class="visible-sm">
+        <div class="row steps">
+          <div class="col-md-4 step <%= 'active' if current_step == :sign_in %>">
+            <div class="col-md-4 col-md-offset-4">
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= image_tag 'intro03.png' %>
+      <h3>Step 3: Wait for a match.</h3>
+      <p>We&rsquo;ll notify your crush an anonymous person likes them. If they list you as a crush too, you&rsquo;ll both be notified on Twitter that you&rsquo;re a match!</p>
+      <a href="https://twitter.com/crushize" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @crushize</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
   </div>
 </div>
