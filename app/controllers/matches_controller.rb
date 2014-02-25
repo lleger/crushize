@@ -7,7 +7,7 @@ class MatchesController < ApplicationController
     if @match.valid?
       @match.save_to_google_doc
       session[:finished] = true
-      redirect_to root_path, notice: 'Your crushes have been saved.'
+      redirect_to root_path, notice: t('.notice', scope: :flash)
     else
       render 'static/index'
     end

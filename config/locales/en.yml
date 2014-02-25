@@ -9,3 +9,13 @@ en:
       default: '%a, %b %-d, %Y at %r'
       date: '%b %-d, %Y'
       short: '%B %d'
+
+  flash:
+    matches:
+      create:
+        notice: 'Your crushes have been saved.'
+    sessions:
+      create:
+        notice: 'You have successfully signed in.'
+      destroy:
+        notice: 'You have successfully been signed out.'
