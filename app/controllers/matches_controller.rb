@@ -1,6 +1,4 @@
 class MatchesController < ApplicationController
-  before_action :verify_user
-
   def create
     @match = Match.new(match_params)
 
@@ -14,12 +12,6 @@ class MatchesController < ApplicationController
   end
 
   private
-
-  def verify_user
-    if !current_user
-      redirect_to root_path, notice: 'You must sign in to twitter before continuing.'
-    end
-  end
 
   def match_params
     params.require(:match).permit(:match_1, :match_2, :match_3)
