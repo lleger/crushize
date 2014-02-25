@@ -24,6 +24,6 @@
   <%= f.text_field :match_3, class: 'form-control', placeholder: '@twitter handle 3' %>
 </div>
 
-<%= f.submit 'Submit', class: 'btn btn-primary btn-block', disable_with: 'Saving crushes...' %>
+<%= f.submit 'Submit', class: 'btn btn-primary btn-block', data: { disable_with: 'Saving crushes...' } %>
 
 <% end %>

@@ -15,7 +15,7 @@ module ApplicationHelper
 
   def flash_container(type, message)
     content_tag(:div, class: "alert alert-dismissable alert-#{type}") do
-      output = content_tag(:button, raw("&times;"),
+      output = content_tag(:button, raw('&times;'),
                            class: 'close',
                            data: { dismiss: 'alert' },
                            'aria-hidden' => true)

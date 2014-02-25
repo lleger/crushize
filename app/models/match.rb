@@ -18,7 +18,7 @@ class Match
 
   def matches_present
     if match_1.blank? && match_2.blank? && match_3.blank?
-      errors.add :base, "You must specify at least one match."
+      errors.add :base, 'You must specify at least one match.'
     end
   end
 end
