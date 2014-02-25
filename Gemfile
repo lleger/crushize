@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
 gem 'pg'
 
@@ -10,8 +10,6 @@ gem 'rack-timeout'
 
 gem 'omniauth-twitter'
 gem 'google_drive'
-
-gem 'jbuilder', '~> 1.2'
 
 gem 'title'
 
