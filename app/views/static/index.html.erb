@@ -44,7 +44,7 @@
       <h3>Step 1: Sign in with Twitter.</h3>
       <% if !current_user %>
         <p>Login below using your personal twitter account. <em>Anonymous accounts won't work</em>!</p>
-        <%= link_to 'Click here to begin', '/auth/twitter', class: 'btn btn-lg btn-primary', data: { no_turbolink: true } %>
+        <%= link_to 'Click here to begin', '/auth/twitter', class: 'btn btn-lg btn-primary js-sign-in-button', data: { no_turbolink: true } %>
       <% else %>
         <p>You&rsquo;re signed in! Input your crushes to the right.</p>
         <%= link_to 'Sign out', sign_out_path, class: 'btn btn-xs btn-danger' %>

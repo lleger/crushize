@@ -6,4 +6,16 @@
 
   ga('create', 'UA-47689732-1', 'crushize.com');
   ga('send', 'pageview');
+
+  $('body').on('click', '.js-sign-in-button', function() {
+    _gaq.push(['_trackEvent', 'Signup', 'Main',,, false]);
+  });
+
+  $('body').on('click', '.js-match-submit-button', function() {
+    _gaq.push(['_trackEvent', 'Submit', 'Crush Submit',,, false]);
+  });
+
+  $('body').on('click', '#follow-button', function() {
+    _gaq.push(['_trackEvent', 'Social Media', 'Twitter',,, false]);
+  });
 </script>
